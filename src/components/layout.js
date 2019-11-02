@@ -6,12 +6,40 @@
  */
 
 import React from "react"
+import { graphql, useStaticQuery } from "gatsby"
+import SideMenu from "./sidemenu"
+import styled from "styled-components"
+import colors from "../styles/colors"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./header"
-import "./layout.css"
+const StyledLayout = styled.div`
+@import url('https://fonts.googleapis.com/css?family=Oxygen:300,400,700&display=swap');
+main,body{
+  padding:0;
+  margin:0;
+}
+h1{
+  font-size: 30px;
+  font-weight: bold;
+}
+h2{
+  font-size: 25px;
+}
+h3{
+  font-size: 22px;
+}
 
+*{
+  color: ${colors.FontColor};
+    font-family: 'Oxygen', sans-serif;
+
+}
+h1{
+  margin-left: 30px;
+  margin-top: 40px;
+}
+
+`
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -25,22 +53,11 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
-        }}
-      >
+      <StyledLayout>
+        <h1>Meteo</h1>
+        <SideMenu/>
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
+      </StyledLayout>
     </>
   )
 }
