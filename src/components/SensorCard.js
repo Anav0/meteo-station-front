@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { StyledCard } from "./StyledCard"
+import PropTypes from "prop-types"
 
 const StyledSensorCard = styled.div`
 width: 225px;
@@ -14,20 +15,20 @@ position: relative;
 `
 
 const StyledSensorCardIcon = styled.div`
-position: absolute;
-left:0;
-top:0;
-background: ${({ theme }) => theme.colors.AccentColor1};
-width:50px;
-height:40px;
-border-radius: 25px 0px 10px;
-display:flex;
-align-items: center;
-justify-content: center;
-
-svg{
-width:20px;
-}
+  position: absolute;
+  left:0;
+  top:0;
+  background: ${({ theme }) => theme.colors.AccentColor1};
+  width:50px;
+  height:40px;
+  border-radius: 25px 0 10px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  
+  svg {
+    width:20px;
+  }
 `
 
 const SensorCard = (props) => {
@@ -42,5 +43,8 @@ const SensorCard = (props) => {
     </StyledSensorCard>
   )
 }
-
+SensorCard.propTypes = {
+  sensor: PropTypes.object,
+  children: PropTypes.node.isRequired,
+}
 export default SensorCard

@@ -1,6 +1,5 @@
 import React, { Component } from "react"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from "../components/Layout"
 import styled from "styled-components"
 import SensorCard from "../components/SensorCard"
 import TempIcon from "../assets/temp.svg"
@@ -9,29 +8,23 @@ import api from "../api"
 import settings from "../settings"
 
 const StyledSection = styled.div`
-
-h2{
-margin-bottom: 40px;
-}
-
-ul{
-  display:flex;
-  padding:0;
-  
-  > *:not(:first-child){
-    margin-left:50px;
+  h2{
+  margin-bottom: 40px;
   }
-}
+  
+  ul{
+    display:flex;
+    padding:0;
+    
+    > *:not(:first-child){
+      margin-left:20px;
+      @media(min-width:768px){
+      margin-left:50px;
+      }
+    }
+  }
 `
-/*
-* Każdy sensor powinien zwracać następujące informormacje w formacie:
-* Nazwa czujnika
-* Zmierzona wartość
-* Data pomiaru w ms
-*
-*
-*
-* */
+
 export default class IndexPage extends Component {
   constructor(props) {
     super(props)
@@ -61,7 +54,6 @@ export default class IndexPage extends Component {
     }
     return (
       <Layout>
-        <SEO title="Home"/>
         <StyledSection>
           <h2>Aktywne Pomiary</h2>
           <ul>
