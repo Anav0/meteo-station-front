@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import colors from "../styles/colors"
 import ChartIcon from "../assets/chart.svg"
 import MonitorIcon from "../assets/monitor.svg"
 
@@ -8,7 +7,7 @@ const StyledSideMenu = styled.div`
   display:flex;
   flex-direction: column;
   align-items: center;
-  background: ${colors.AccentColor1};
+  background: ${({ theme }) => theme.colors.AccentColor1};
   height:80vh;
   width:96px;
   position:absolute;
@@ -28,7 +27,7 @@ align-items: center;
 margin:0;
 padding:0;
 
-img{
+svg{
 width:25px;
 cursor:pointer;
 }
@@ -36,8 +35,8 @@ cursor:pointer;
 const SideMenu = () => (
   <StyledSideMenu>
     <StyledNavItems>
-      <img src={ChartIcon} alt="chart icon"/>
-      <img src={MonitorIcon} alt="monitor icon"/>
+      <MonitorIcon/>
+      <ChartIcon/>
     </StyledNavItems>
   </StyledSideMenu>
 
