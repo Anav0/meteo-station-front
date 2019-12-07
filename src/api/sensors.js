@@ -1,5 +1,11 @@
 import axios from "axios"
 
+function randomBetween(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min
+}
+const interval = 3600000 //1h;
+let current = 1575742319
+
 export default {
   getActiveSensorsReading: () => {
     return new Promise(resolve => {
@@ -9,20 +15,13 @@ export default {
             {
               id: "1",
               sensorName: "Sensor1",
-              value: "25",
-              date: 1572792755271,
+              value: randomBetween(0, 30),
+              date: (current += interval),
               codeName: "temperature",
-            },
-            {
-              id: "2",
-              sensorName: "Sensor2",
-              value: "45",
-              date: 1572792755271,
-              codeName: "humidity",
             },
           ],
         })
-      }, 500)
+      }, 1000)
     })
   }, //axios.get("/api/activeSensors"),
 }

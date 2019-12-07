@@ -7,21 +7,29 @@ import themeLight from "../styles/theme"
 import { createGlobalStyle } from "styled-components"
 
 const GlobalStyle = createGlobalStyle`
-  html {
-    background: ${({ theme }) => theme.colors.Background};
-    width:100%;
-    height:100%;
+  @import url("https://fonts.googleapis.com/css?family=Oxygen:300,400,700&display=swap");
+  * {
+    font-family: "Oxygen", sans-serif;
+  }
+  html{
+    min-height:100vh;
+    min-width:100vw;
+    overflow-x:hidden;
+  }
+  body {
+    background-image: ${({ theme }) => theme.colors.Background};
+    background-size: cover;
   }
 `
 const StyledLayout = styled.div`
-  @import url("https://fonts.googleapis.com/css?family=Oxygen:300,400,700&display=swap");
-  * {
-    color: ${themeLight.colors.FontColor};
-    font-family: "Oxygen", sans-serif;
-  }
+  color: ${themeLight.colors.FontColor};
+
   main {
     padding: 20px;
-    @media (min-width: 765px) {
+    @media (min-width: 768px) {
+      padding: 60px;
+    }
+    @media (min-width: 1366px) {
       padding: 20px 20px 20px 150px;
     }
   }

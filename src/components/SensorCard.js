@@ -35,7 +35,10 @@ const SensorCard = props => {
     <StyledSensorCard>
       <StyledCard>
         <StyledSensorCardIcon>{props.children}</StyledSensorCardIcon>
-        <h2>{props.sensor.value}</h2>
+        <h2>
+          {props.sensor.value}
+          {props.symbol}
+        </h2>
       </StyledCard>
     </StyledSensorCard>
   )
