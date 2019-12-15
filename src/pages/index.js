@@ -98,11 +98,13 @@ export default class IndexPage extends Component {
     let datasets = [...this.state.chartData.datasets]
     sensors.forEach(sensor => {
       labels.push(
-        `${new Date(sensor.date).getHours()}:${new Date(
-          sensor.date
-        ).getMinutes()}`
+        `${sensor.date.toLocaleDateString("pl-PL", {
+          weekday: "long",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        })}`
       )
-
       datasets
         .find(dataset => dataset.id === sensor.codeName)
         .data.push(sensor.value)
@@ -120,7 +122,7 @@ export default class IndexPage extends Component {
         const response = await api.sensors.getActiveSensorsReading()
         if (!response.data[0].sensorName)
           throw new Error("API jest nieosiągalne, odśwież stronę")
-
+        response.data.map(reading => (reading.date = new Date()))
         this.setState(state => {
           state.sensors = response.data
           state.isLoading = false
