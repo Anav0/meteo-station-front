@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Igor Motyka <igor_motyka@mail.com>",
   "dependencies": {
-    "axios": "^0.21.4",
+    "axios": "^0.21.2",
     "babel-plugin-styled-components": "^1.13.2",
     "chart.js": "^3.5.1",
     "gatsby": "^3.13.0",
