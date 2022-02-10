@@ -19,7 +19,7 @@
     "gatsby-plugin-styled-components": "^4.13.0",
     "gatsby-source-filesystem": "^3.13.0",
     "gatsby-transformer-sharp": "^3.13.0",
-    "node-sass": "^6.0.1",
+    "node-sass": "^7.0.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-chartjs-2": "^3.0.4",
